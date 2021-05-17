@@ -27,6 +27,7 @@ jobs:
           sed -i "/${package}/s/${from}/${to}/g" .ci_support/environment.yml
       - name: UpdateDependabotPR commit
         run: |
+          echo "${{ github.event.pull_request.base.head }}"
           echo "${{ github.event.pull_request.base.head.ref }}"
           git status
           git checkout ${{ github.event.pull_request.base.head.ref }}
