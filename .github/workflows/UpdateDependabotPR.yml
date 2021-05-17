@@ -25,7 +25,7 @@ jobs:
           sed -i "/${package}/s/${from}/${to}/g" .ci_support/environment.yml
       - name: UpdateDependabotPR commit
         run: |
-          git checkout ${{ github.event.pull_request.base.head.ref }}
+          git checkout ${{ github.event.pull_request.head.ref }}
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "[dependabot skip] Update environment" -a
@@ -34,4 +34,4 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.event.pull_request.base.head.ref }}
+          branch: ${{ github.event.pull_request.head.ref }}
