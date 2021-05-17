@@ -20,9 +20,11 @@ jobs:
         shell: bash -l {0}
         run: |
           echo "${{toJSON(github.event)}}"
-          package= $(echo "${{ github.event.commits[0].message }}" | awk '{print $2}')
-          from= $(echo "${{ github.event.commits[0].message }}" | awk '{print $4}')
-          to= $(echo "${{ github.event.commits[0].message }}" | awk '{print $6}')
+          echo "==========="
+          echo "${{ github.event['title'] }}
+          package= $(echo "${{ github.event['title'] }}" | awk '{print $2}')
+          from= $(echo "${{ github.event['title'] }}" | awk '{print $4}')
+          to= $(echo "${{ github.event['title'] }}" | awk '{print $6}')
           echo "Update ${package} from ${from} to ${to}."
           sed -i "/${package}/s/${from}/${to}/g" .ci_support/environment.yml
       - name: UpdateDependabotPR commit
