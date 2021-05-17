@@ -22,7 +22,7 @@ jobs:
           package= $(echo ${{ github.event.commits[0].message }} | awk '{print $2}')
           from= $(echo ${{ github.event.commits[0].message }} | awk '{print $4}')
           to= $(echo ${{ github.event.commits[0].message }} | awk '{print $6}')
-          sed -i "/$package/s/$from/$to/g' .ci_support/environment.yml
+          sed -i "/$package/s/$from/$to/g" .ci_support/environment.yml
       - name: UpdateDependabotPR commit
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
