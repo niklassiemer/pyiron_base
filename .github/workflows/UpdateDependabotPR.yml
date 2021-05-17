@@ -21,7 +21,7 @@ jobs:
         run: |
           echo "${{toJSON(github.event)}}"
           echo "==========="
-          echo "${{ github.event['title'] }}
+          echo "${{ github.event['title'] }}"
           package= $(echo "${{ github.event['title'] }}" | awk '{print $2}')
           from= $(echo "${{ github.event['title'] }}" | awk '{print $4}')
           to= $(echo "${{ github.event['title'] }}" | awk '{print $6}')
