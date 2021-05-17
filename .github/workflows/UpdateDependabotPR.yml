@@ -19,9 +19,12 @@ jobs:
       - name: UpdateEnvironmentFile
         shell: bash -l {0}
         run: |
-          echo "${{toJSON(github.event)}}"
+          # echo "${{toJSON(github.event)}}"
           echo "==========="
           echo "${{ github.event['title'] }}"
+          echo "${{ gitgub.event['pull_request']['title'] }}"
+          echo "${{ gitgub.event.pull_request['title'] }}"
+          echo "${{ github.event.pull_request.title }}"
           package= $(echo "${{ github.event['title'] }}" | awk '{print $2}')
           from= $(echo "${{ github.event['title'] }}" | awk '{print $4}')
           to= $(echo "${{ github.event['title'] }}" | awk '{print $6}')
