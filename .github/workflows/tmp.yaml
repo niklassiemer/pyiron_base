@@ -1,0 +1,22 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: EventLog
+
+on:
+  pull_request:
+    branches: [ master, main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: startswith(github.actor, 'dependabot')
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          #  persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+      - name: PrintEventLog
+        shell: bash -l {0}
+        run: |
+          echo "${{toJSON(github.event)}}"
