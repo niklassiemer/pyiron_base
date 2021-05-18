@@ -1,13 +1,13 @@
 name: UpdateDependabotPR
 
 on:
-  pull_request:
+  pull_request_target:
     branches: [ master, main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: startswith(github.actor, 'dependabot')
+    if: (github.actor == 'dependabot[bot]')
     steps:
       - uses: actions/checkout@v2
         with:
