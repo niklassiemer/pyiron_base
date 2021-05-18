@@ -20,7 +20,6 @@ jobs:
           package=$(echo "${{ github.event.pull_request.title }}" | awk '{print $2}')
           from=$(echo "${{ github.event.pull_request.title }}" | awk '{print $4}')
           to=$(echo "${{ github.event.pull_request.title }}" | awk '{print $6}')
-          echo "Update ${package} from ${from} to ${to}."
           sed -i "/${package}/s/${from}/${to}/g" .ci_support/environment.yml
       - name: UpdateDependabotPR commit
         run: |
@@ -30,5 +29,5 @@ jobs:
       - name: UpdateDependabotPR push
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.ADDITIONAL_GITHUB_TOKEN }}
           branch: ${{ github.event.pull_request.head.ref }}
