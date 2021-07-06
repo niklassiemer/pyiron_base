@@ -43,7 +43,7 @@ setup(
         'sqlalchemy==1.4.20',
         'pyiron-atomistics==0.1.0',
         'tables==3.6.1',
-        'tqdm==4.61.1'
+        'tqdm==4.61.2'
     ],
     cmdclass=versioneer.get_cmdclass(),
 
