@@ -1,0 +1,3 @@
+[submodule ".static_ci_support"]
+	path = .static_ci_support
+	url = https://github.com/niklassiemer/pyiron_ci_support.git
