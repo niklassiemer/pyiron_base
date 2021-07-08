@@ -14,10 +14,11 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }} # Check out the head of the actual branch, not the PR
           fetch-depth: 0 # otherwise, you will fail to push refs to dest repo
           token: ${{ secrets.MY_WORFKLOW_TOKEN }}
+          submodules: recursive
       - name: UpdateEnvironmentFile
         shell: bash -l {0}
         run: |
-          python .ci_support/update_environment.py ${{ github.event.pull_request.title }}
+          python .static_ci_support/update_environment.py ${{ github.event.pull_request.title }}
       - name: UpdateDependabotPR commit
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
