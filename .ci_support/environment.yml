@@ -18,4 +18,4 @@ dependencies:
   - pytables =3.6.1
   - sqlalchemy =1.4.20
   - tqdm =4.61.1
-  - pyiron_atomistics =0.1.0
+  - pyiron_atomistics =0.2.20
