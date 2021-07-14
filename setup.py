@@ -41,7 +41,7 @@ setup(
         'pyfileindex==0.0.6',
         'pysqa==0.0.15',
         'sqlalchemy==1.4.20',
-        'pyiron-atomistics==0.1.0',
+        'pyiron-atomistics==0.2.20',
         'tables==3.6.1',
         'tqdm==4.61.1'
     ],
